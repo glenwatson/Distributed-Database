@@ -1,0 +1,80 @@
+TM
++ Read(item : DataLocation) : byte
+	check workspace for item
+	if item is not in workspace,
+		ask dm for item
+		put in workspace
+		return value
+	else item is in workspace
+		return from workspace
+
++ Write(item : DataLocation, value : byte) : void
+	check workspace for item
+	if item is in workspace
+		update workspace
+	else
+		add to workspace
+
++ Begin() : void
+	Add a workspace to the workspace stack?
+
++ End() : void
+	pop the top of the workspace stack?
+	let involvedDMs be a new set of DMLocations
+	foreach change in workspace,
+		issue StageChange passing in change
+		add DM to involvedDMs
+	issue EndStagingPhase, begin VotingPhase
+	wait for all votes
+	if any vote is "abort"
+		foreach involvedDM in involvedDMs
+			issue "abort" command
+	else
+		foreach involvedDM in involvedDMs
+			issue "commit" command
+			
++ Restart() : void
+	remove all from workspace
+
+DM
++ Read(item : DataLocation) : byte
+	return value of item
++ Write(item : DataLocation, value : byte) : void
+	check item's DMLocation refers to this
+	write value to item
++ StageChange(change : Change) : void
+	add change to workspace
++ Begin() : void
+	
++ End() : void
+	
++ Restart() : void
+	remove all from workspace
+
++ EndStagingPhase() : Vote
+	let vote be "commit"
+	foreach change in workspace
+		let successfulChangePrep be the result of ChangePrep passing in change
+		if successfulChangePrep is false,
+			let vote be "abort"
+	return vote "commit"
+	
+	
+- ChangePrep(change : Change) : boolean
+	try to get lock for change's location
+	if lock was gotten successfully
+		set lock to change's lock
+		if change is a read && the value is not still the same
+			return false
+	else lock was not gotten successfully,
+		return false
+	return true
+	
++ End() : void
+	foreach change in workspace
+		commit change
+		release lock
+
++ Abort() : void
+	release all locks
+	wipe workspace

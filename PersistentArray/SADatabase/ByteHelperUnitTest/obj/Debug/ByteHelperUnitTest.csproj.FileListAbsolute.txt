@@ -1,0 +1,7 @@
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\bin\Debug\ByteHelperUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\bin\Debug\ByteHelperUnitTest.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\bin\Debug\ByteHelper.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\bin\Debug\ByteHelper.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\obj\Debug\ByteHelperUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\obj\Debug\ByteHelperUnitTest.pdb

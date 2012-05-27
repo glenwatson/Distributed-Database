@@ -1,0 +1,9 @@
+<Modules>
+  <Module PersistentId="B4E7D9E7-B8D6-448D-9900-26F9097B43B9" ModuleId="PersistentArray" />
+  <Module PersistentId="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="mscorlib" />
+  <Module PersistentId="71E2505D-5594-43A8-97C0-AD60CA5EEC32" ModuleId="PersistentArrayUnitTest" />
+  <Module PersistentId="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+  <Module PersistentId="8B06BE6E-82BB-4BE6-8266-94F1A8C2BAB9" ModuleId="CPA" />
+  <Module PersistentId="3259F977-7977-4B1C-AAAB-E67881F47C36" ModuleId="CPAUnitTest" />
+  <Module PersistentId="510FAF23-8621-40C7-8DF8-36681C22DB66" ModuleId="PLL" />
+</Modules>

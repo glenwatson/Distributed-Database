@@ -1,0 +1,17 @@
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\PAFS.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\PAFS.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\obj\Debug\PAFS.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\obj\Debug\PAFS.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\PA.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\PA.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\ByteHelper.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\Interfaces.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\ByteHelper.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\Interfaces.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\Persistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\FilePersistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\Persistence.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\FilePersistence.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\CPA.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\CPA.pdb

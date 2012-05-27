@@ -1,0 +1,13 @@
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\PersistenceUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\PersistenceUnitTest.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\ByteHelperUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\Interfaces.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\Persistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\ByteHelper.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\ByteHelperUnitTest.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\Interfaces.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\Persistence.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\bin\Debug\ByteHelper.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\obj\Debug\PersistenceUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistenceUnitTest\obj\Debug\PersistenceUnitTest.pdb

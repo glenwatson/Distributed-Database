@@ -1,0 +1,5 @@
+C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\CPAUnitTest\bin\Release\CPAUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\CPAUnitTest\bin\Release\CPAUnitTest.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\CPAUnitTest\obj\Release\ResolveAssemblyReference.cache
+C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\CPAUnitTest\obj\Release\CPAUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\CPAUnitTest\obj\Release\CPAUnitTest.pdb

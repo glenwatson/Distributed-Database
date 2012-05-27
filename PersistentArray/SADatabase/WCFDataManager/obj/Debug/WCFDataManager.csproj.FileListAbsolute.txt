@@ -1,0 +1,10 @@
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\bin\Debug\WCFDataManager.dll.config
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\bin\Debug\WCFDataManager.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\bin\Debug\WCFDataManager.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\bin\Debug\DistributedConcurrency.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\bin\Debug\Interfaces.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\bin\Debug\DistributedConcurrency.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\bin\Debug\Interfaces.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\obj\Debug\WCFDataManager.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\WCFDataManager\obj\Debug\WCFDataManager.pdb

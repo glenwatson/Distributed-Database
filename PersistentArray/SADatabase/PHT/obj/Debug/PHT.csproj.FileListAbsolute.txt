@@ -1,0 +1,15 @@
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\PHT.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\PHT.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\PA.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\PA.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\obj\Debug\PHT.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\obj\Debug\PHT.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\ByteHelper.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\Interfaces.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\ByteHelper.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\Interfaces.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\Persistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\FilePersistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\Persistence.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PHT\bin\Debug\FilePersistence.pdb

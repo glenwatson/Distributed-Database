@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="33ee9ff1-fc9b-4794-8ddd-d7bbe5684b32" name="gwatson (2012-03-18 19:33:55)" runUser="NUSTUDENT\gwatson" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="LocalCodeCoverage" id="ec93bdfa-e2b8-47a6-a2aa-09dc288ce4c8">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="gwatson _2012-03-18 19_33_55_">
+      <DeploymentItem filename="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistence\bin\Debug\FilePersistence.dll" />
+      <DeploymentItem filename="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelper\bin\Debug\ByteHelper.dll" />
+      <DeploymentItem filename="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\bin\Debug\ByteHelperUnitTest.dll" />
+      <DeploymentItem filename="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PersistentArrayUnitTest\bin\Debug\PAUnitTest.dll" />
+      <DeploymentItem filename="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLL\bin\Debug\PLL.dll" />
+      <DeploymentItem filename="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Interfaces\bin\Debug\Interfaces.dll" />
+      <DeploymentItem filename="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PA\bin\Debug\PA.dll" />
+    </Deployment>
+    <NamingScheme baseName="gwatson" useDefault="false" />
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLL\bin\Debug\PLL.dll" pdbFile="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLL\bin\Debug\PLL.instr.pdb" instrumentInPlace="true" />
+                  <CodeCoverageItem binaryFile="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\PAFS.dll" pdbFile="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PAFS\bin\Debug\PAFS.instr.pdb" instrumentInPlace="true" />
+                  <CodeCoverageItem binaryFile="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PA\bin\Debug\PA.dll" pdbFile="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PA\bin\Debug\PA.instr.pdb" instrumentInPlace="true" />
+                  <CodeCoverageItem binaryFile="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\CPA\bin\Debug\CPA.dll" pdbFile="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\CPA\bin\Debug\CPA.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-18T19:33:55.8508201-06:00" queuing="2012-03-18T19:33:58.8239902-06:00" start="2012-03-18T19:33:58.8789933-06:00" finish="2012-03-18T19:34:01.9261676-06:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="21" executed="21" passed="17" error="0" failed="4" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <ResultFiles>
+      <ResultFile path="WATSON1491\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="InsertLinksCorrectlyTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="f0820a20-bffa-aca4-73b6-cb5b10486dcd">
+      <Execution id="25a11b0f-77c6-4b8b-91c1-1c28ae51b4cb" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="InsertLinksCorrectlyTest" />
+    </UnitTest>
+    <UnitTest name="AddAfterTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="0f7dd13b-d69f-2fef-8f8e-80f7ee7968ec">
+      <Execution id="d5f8e996-81cd-4d90-953a-88db8b9e0b22" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="AddAfterTest" />
+    </UnitTest>
+    <UnitTest name="UpdateTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="8bf66a88-08b1-206e-6e7a-07808be453b9">
+      <Execution id="eb04d8a1-34da-4825-b02d-f69145362e7a" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="UpdateTest" />
+    </UnitTest>
+    <UnitTest name="AssertNotBadNodeIndexTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="63cc42b4-1dc6-41a3-f417-45c71de20956">
+      <Execution id="39f99bc0-f33e-4f5c-8e8c-1b71f3c171bf" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="AssertNotBadNodeIndexTest" />
+    </UnitTest>
+    <UnitTest name="GetNextTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="ffe04048-3d0c-a00a-f497-66ad2a87b507">
+      <Execution id="aa168ad9-d897-4ba2-8dd8-39b2fd505072" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="GetNextTest" />
+    </UnitTest>
+    <UnitTest name="GetElementSizeTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="a54f2629-8741-9051-67a0-e1a8c4b5ea10">
+      <Execution id="e3b2cd0a-b7c0-441d-b504-48bb09fcaf7c" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="GetElementSizeTest" />
+    </UnitTest>
+    <UnitTest name="GetPreviousTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="565a9370-80c9-3456-28b5-ca4466bce36c">
+      <Execution id="66ec2180-1358-46e2-8b81-456e1e2a81a5" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="GetPreviousTest" />
+    </UnitTest>
+    <UnitTest name="CreateTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="fd2220b2-26eb-6999-62ad-4cbb765b850c">
+      <Execution id="d37884f3-dd21-4546-a650-7546e28c8625" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="CreateTest" />
+    </UnitTest>
+    <UnitTest name="AddToStartTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="0ef3c0a1-e279-0642-068f-cf09f20b4b4e">
+      <Execution id="fd3114d4-bac0-4b51-a419-646565d6a726" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="AddToStartTest" />
+    </UnitTest>
+    <UnitTest name="RemoveTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="4bbd3904-7ad8-7f8b-c8e4-fd552740646a">
+      <Execution id="eeef6c46-1673-40a9-a40c-3c9d7f285a10" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="RemoveTest" />
+    </UnitTest>
+    <UnitTest name="InsertThrowsTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="7256c121-b7a1-76a6-3a43-87fec1af02da">
+      <Execution id="f20049d1-f7a2-41e3-88cf-a543d37676a4" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="InsertThrowsTest" />
+    </UnitTest>
+    <UnitTest name="DeleteTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="1d53293b-a39c-108d-e97e-8d3ed479d40d">
+      <Execution id="bdd5b2ae-7183-41e9-992e-0c7c392ab94f" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="DeleteTest" />
+    </UnitTest>
+    <UnitTest name="ReopenTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="30fb22e9-f40e-bfdf-14ab-ef764bec1747">
+      <Execution id="92899c38-7bb5-4bfb-9bde-6f57622fc073" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="ReopenTest" />
+    </UnitTest>
+    <UnitTest name="GetFirstTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="a1ae16c5-0695-b546-0d5a-01f95dae83d0">
+      <Execution id="85708a29-2bd0-4496-b26c-4960991365db" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="GetFirstTest" />
+    </UnitTest>
+    <UnitTest name="AddBeforeTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="6e6c95ba-db7f-0ed9-f253-6c4e917c2d37">
+      <Execution id="34507258-89f6-4738-a96b-50422a52baed" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="AddBeforeTest" />
+    </UnitTest>
+    <UnitTest name="GetUserHeaderSizeTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="c0ed1de9-8e4d-8e00-a4bf-c9b99057cab2">
+      <Execution id="14ce534a-6f2f-48ec-9520-dc00f32d6e1d" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="GetUserHeaderSizeTest" />
+    </UnitTest>
+    <UnitTest name="PutGetUserHeaderTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="11201bbf-151b-a78e-02fa-23b7cbfebd28">
+      <Execution id="1c8e2f6b-1e1d-4303-8f79-e78ab1ff03b8" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="PutGetUserHeaderTest" />
+    </UnitTest>
+    <UnitTest name="GetLastTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="f8dab570-907f-9537-fb70-c2f0ade97939">
+      <Execution id="62409ab6-7d28-4628-b7a0-a3c5a678b830" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="GetLastTest" />
+    </UnitTest>
+    <UnitTest name="GetDataTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="45dc2f0e-4af7-fb97-54f6-bad15d2a2da4">
+      <Execution id="8adc486c-1d84-4959-9f36-310ba1c5bd9c" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="GetDataTest" />
+    </UnitTest>
+    <UnitTest name="LengthTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="e7921d23-7b31-8b43-d930-5a3bc89a44b3">
+      <Execution id="6a7d1cc9-16e8-44da-9d59-4bc02e113bb6" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="LengthTest" />
+    </UnitTest>
+    <UnitTest name="AddToEndTest" storage="c:\users\gwatson\desktop\sa\persistentarray\sadatabase\pllunittest\bin\debug\pllunittest.dll" id="e5f5eeb7-8767-c831-6700-d29e08cf89bb">
+      <Execution id="ba553ec1-bc9e-4fbb-a1e2-735444ef416e" />
+      <TestMethod codeBase="C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\bin\Debug\PLLUnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PLLUnitTest.PersistentLinkedListTest, PLLUnitTest" name="AddToEndTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0ef3c0a1-e279-0642-068f-cf09f20b4b4e" executionId="fd3114d4-bac0-4b51-a419-646565d6a726" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0f7dd13b-d69f-2fef-8f8e-80f7ee7968ec" executionId="d5f8e996-81cd-4d90-953a-88db8b9e0b22" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="11201bbf-151b-a78e-02fa-23b7cbfebd28" executionId="1c8e2f6b-1e1d-4303-8f79-e78ab1ff03b8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1d53293b-a39c-108d-e97e-8d3ed479d40d" executionId="bdd5b2ae-7183-41e9-992e-0c7c392ab94f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30fb22e9-f40e-bfdf-14ab-ef764bec1747" executionId="92899c38-7bb5-4bfb-9bde-6f57622fc073" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45dc2f0e-4af7-fb97-54f6-bad15d2a2da4" executionId="8adc486c-1d84-4959-9f36-310ba1c5bd9c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4bbd3904-7ad8-7f8b-c8e4-fd552740646a" executionId="eeef6c46-1673-40a9-a40c-3c9d7f285a10" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="565a9370-80c9-3456-28b5-ca4466bce36c" executionId="66ec2180-1358-46e2-8b81-456e1e2a81a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63cc42b4-1dc6-41a3-f417-45c71de20956" executionId="39f99bc0-f33e-4f5c-8e8c-1b71f3c171bf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6e6c95ba-db7f-0ed9-f253-6c4e917c2d37" executionId="34507258-89f6-4738-a96b-50422a52baed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7256c121-b7a1-76a6-3a43-87fec1af02da" executionId="f20049d1-f7a2-41e3-88cf-a543d37676a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8bf66a88-08b1-206e-6e7a-07808be453b9" executionId="eb04d8a1-34da-4825-b02d-f69145362e7a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a1ae16c5-0695-b546-0d5a-01f95dae83d0" executionId="85708a29-2bd0-4496-b26c-4960991365db" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a54f2629-8741-9051-67a0-e1a8c4b5ea10" executionId="e3b2cd0a-b7c0-441d-b504-48bb09fcaf7c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0ed1de9-8e4d-8e00-a4bf-c9b99057cab2" executionId="14ce534a-6f2f-48ec-9520-dc00f32d6e1d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e5f5eeb7-8767-c831-6700-d29e08cf89bb" executionId="ba553ec1-bc9e-4fbb-a1e2-735444ef416e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7921d23-7b31-8b43-d930-5a3bc89a44b3" executionId="6a7d1cc9-16e8-44da-9d59-4bc02e113bb6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f0820a20-bffa-aca4-73b6-cb5b10486dcd" executionId="25a11b0f-77c6-4b8b-91c1-1c28ae51b4cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8dab570-907f-9537-fb70-c2f0ade97939" executionId="62409ab6-7d28-4628-b7a0-a3c5a678b830" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd2220b2-26eb-6999-62ad-4cbb765b850c" executionId="d37884f3-dd21-4546-a650-7546e28c8625" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ffe04048-3d0c-a00a-f497-66ad2a87b507" executionId="aa168ad9-d897-4ba2-8dd8-39b2fd505072" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="fd3114d4-bac0-4b51-a419-646565d6a726" testId="0ef3c0a1-e279-0642-068f-cf09f20b4b4e" testName="AddToStartTest" computerName="WATSON1491" duration="00:00:00.0561401" startTime="2012-03-18T19:33:59.9820564-06:00" endTime="2012-03-18T19:34:00.3040748-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fd3114d4-bac0-4b51-a419-646565d6a726">
+    </UnitTestResult>
+    <UnitTestResult executionId="d5f8e996-81cd-4d90-953a-88db8b9e0b22" testId="0f7dd13b-d69f-2fef-8f8e-80f7ee7968ec" testName="AddAfterTest" computerName="WATSON1491" duration="00:00:00.0028563" startTime="2012-03-18T19:34:00.3090751-06:00" endTime="2012-03-18T19:34:00.3210758-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d5f8e996-81cd-4d90-953a-88db8b9e0b22">
+    </UnitTestResult>
+    <UnitTestResult executionId="1c8e2f6b-1e1d-4303-8f79-e78ab1ff03b8" testId="11201bbf-151b-a78e-02fa-23b7cbfebd28" testName="PutGetUserHeaderTest" computerName="WATSON1491" duration="00:00:00.0016893" startTime="2012-03-18T19:34:00.3260761-06:00" endTime="2012-03-18T19:34:00.3330765-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1c8e2f6b-1e1d-4303-8f79-e78ab1ff03b8">
+    </UnitTestResult>
+    <UnitTestResult executionId="bdd5b2ae-7183-41e9-992e-0c7c392ab94f" testId="1d53293b-a39c-108d-e97e-8d3ed479d40d" testName="DeleteTest" computerName="WATSON1491" duration="00:00:00.0052803" startTime="2012-03-18T19:34:00.3380768-06:00" endTime="2012-03-18T19:34:00.3490774-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bdd5b2ae-7183-41e9-992e-0c7c392ab94f">
+    </UnitTestResult>
+    <UnitTestResult executionId="92899c38-7bb5-4bfb-9bde-6f57622fc073" testId="30fb22e9-f40e-bfdf-14ab-ef764bec1747" testName="ReopenTest" computerName="WATSON1491" duration="00:00:00.0234524" startTime="2012-03-18T19:34:00.3540777-06:00" endTime="2012-03-18T19:34:00.3810792-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="92899c38-7bb5-4bfb-9bde-6f57622fc073">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;0&gt;. Actual:&lt;1&gt;. </Message>
+          <StackTrace>   at ByteHelperUnitTest.TestHelper.AssertByteArraysAreSame(Byte[] expected, Byte[] actual) in C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelperUnitTest\TestHelper.cs:line 20
+   at PLLUnitTest.PersistentLinkedListTest.ReopenTest() in C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\PersistentLinkedListTest.cs:line 659
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8adc486c-1d84-4959-9f36-310ba1c5bd9c" testId="45dc2f0e-4af7-fb97-54f6-bad15d2a2da4" testName="GetDataTest" computerName="WATSON1491" duration="00:00:00.0024940" startTime="2012-03-18T19:34:00.3940800-06:00" endTime="2012-03-18T19:34:00.4070807-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8adc486c-1d84-4959-9f36-310ba1c5bd9c">
+    </UnitTestResult>
+    <UnitTestResult executionId="eeef6c46-1673-40a9-a40c-3c9d7f285a10" testId="4bbd3904-7ad8-7f8b-c8e4-fd552740646a" testName="RemoveTest" computerName="WATSON1491" duration="00:00:00.0129149" startTime="2012-03-18T19:34:00.4130811-06:00" endTime="2012-03-18T19:34:00.4300820-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eeef6c46-1673-40a9-a40c-3c9d7f285a10">
+    </UnitTestResult>
+    <UnitTestResult executionId="66ec2180-1358-46e2-8b81-456e1e2a81a5" testId="565a9370-80c9-3456-28b5-ca4466bce36c" testName="GetPreviousTest" computerName="WATSON1491" duration="00:00:00.0026132" startTime="2012-03-18T19:34:00.4360824-06:00" endTime="2012-03-18T19:34:00.4410827-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="66ec2180-1358-46e2-8b81-456e1e2a81a5">
+    </UnitTestResult>
+    <UnitTestResult executionId="39f99bc0-f33e-4f5c-8e8c-1b71f3c171bf" testId="63cc42b4-1dc6-41a3-f417-45c71de20956" testName="AssertNotBadNodeIndexTest" computerName="WATSON1491" duration="00:00:00.0023948" startTime="2012-03-18T19:34:00.4730845-06:00" endTime="2012-03-18T19:34:00.4880854-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="39f99bc0-f33e-4f5c-8e8c-1b71f3c171bf">
+    </UnitTestResult>
+    <UnitTestResult executionId="34507258-89f6-4738-a96b-50422a52baed" testId="6e6c95ba-db7f-0ed9-f253-6c4e917c2d37" testName="AddBeforeTest" computerName="WATSON1491" duration="00:00:00.0023344" startTime="2012-03-18T19:34:00.5050863-06:00" endTime="2012-03-18T19:34:00.5120867-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="34507258-89f6-4738-a96b-50422a52baed">
+    </UnitTestResult>
+    <UnitTestResult executionId="f20049d1-f7a2-41e3-88cf-a543d37676a4" testId="7256c121-b7a1-76a6-3a43-87fec1af02da" testName="InsertThrowsTest" computerName="WATSON1491" duration="00:00:00.0017723" startTime="2012-03-18T19:34:00.5170870-06:00" endTime="2012-03-18T19:34:00.5250875-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f20049d1-f7a2-41e3-88cf-a543d37676a4">
+    </UnitTestResult>
+    <UnitTestResult executionId="eb04d8a1-34da-4825-b02d-f69145362e7a" testId="8bf66a88-08b1-206e-6e7a-07808be453b9" testName="UpdateTest" computerName="WATSON1491" duration="00:00:00.0031975" startTime="2012-03-18T19:34:00.5300878-06:00" endTime="2012-03-18T19:34:00.5370882-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb04d8a1-34da-4825-b02d-f69145362e7a">
+    </UnitTestResult>
+    <UnitTestResult executionId="85708a29-2bd0-4496-b26c-4960991365db" testId="a1ae16c5-0695-b546-0d5a-01f95dae83d0" testName="GetFirstTest" computerName="WATSON1491" duration="00:00:00.0038677" startTime="2012-03-18T19:34:00.5440886-06:00" endTime="2012-03-18T19:34:00.5540891-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="85708a29-2bd0-4496-b26c-4960991365db">
+    </UnitTestResult>
+    <UnitTestResult executionId="e3b2cd0a-b7c0-441d-b504-48bb09fcaf7c" testId="a54f2629-8741-9051-67a0-e1a8c4b5ea10" testName="GetElementSizeTest" computerName="WATSON1491" duration="00:00:00.0055214" startTime="2012-03-18T19:34:00.5610895-06:00" endTime="2012-03-18T19:34:00.5730902-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e3b2cd0a-b7c0-441d-b504-48bb09fcaf7c">
+    </UnitTestResult>
+    <UnitTestResult executionId="14ce534a-6f2f-48ec-9520-dc00f32d6e1d" testId="c0ed1de9-8e4d-8e00-a4bf-c9b99057cab2" testName="GetUserHeaderSizeTest" computerName="WATSON1491" duration="00:00:00.0010871" startTime="2012-03-18T19:34:00.5810907-06:00" endTime="2012-03-18T19:34:00.5930914-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="14ce534a-6f2f-48ec-9520-dc00f32d6e1d">
+    </UnitTestResult>
+    <UnitTestResult executionId="ba553ec1-bc9e-4fbb-a1e2-735444ef416e" testId="e5f5eeb7-8767-c831-6700-d29e08cf89bb" testName="AddToEndTest" computerName="WATSON1491" duration="00:00:00.0028591" startTime="2012-03-18T19:34:00.6000918-06:00" endTime="2012-03-18T19:34:00.6090923-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ba553ec1-bc9e-4fbb-a1e2-735444ef416e">
+    </UnitTestResult>
+    <UnitTestResult executionId="6a7d1cc9-16e8-44da-9d59-4bc02e113bb6" testId="e7921d23-7b31-8b43-d930-5a3bc89a44b3" testName="LengthTest" computerName="WATSON1491" duration="00:00:00.0025982" startTime="2012-03-18T19:34:00.6180928-06:00" endTime="2012-03-18T19:34:00.6240931-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6a7d1cc9-16e8-44da-9d59-4bc02e113bb6">
+    </UnitTestResult>
+    <UnitTestResult executionId="25a11b0f-77c6-4b8b-91c1-1c28ae51b4cb" testId="f0820a20-bffa-aca4-73b6-cb5b10486dcd" testName="InsertLinksCorrectlyTest" computerName="WATSON1491" duration="00:00:00.0041068" startTime="2012-03-18T19:34:00.6310935-06:00" endTime="2012-03-18T19:34:00.6390940-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="25a11b0f-77c6-4b8b-91c1-1c28ae51b4cb">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;0&gt;. </Message>
+          <StackTrace>   at PLLUnitTest.PersistentLinkedListTest.InsertLinksCorrectlyTest() in C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\PersistentLinkedListTest.cs:line 159
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="62409ab6-7d28-4628-b7a0-a3c5a678b830" testId="f8dab570-907f-9537-fb70-c2f0ade97939" testName="GetLastTest" computerName="WATSON1491" duration="00:00:00.0063144" startTime="2012-03-18T19:34:00.6560950-06:00" endTime="2012-03-18T19:34:00.6650955-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="62409ab6-7d28-4628-b7a0-a3c5a678b830">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;2&gt;. Actual:&lt;3&gt;. </Message>
+          <StackTrace>   at PLLUnitTest.PersistentLinkedListTest.GetLastTest() in C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\PersistentLinkedListTest.cs:line 361
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d37884f3-dd21-4546-a650-7546e28c8625" testId="fd2220b2-26eb-6999-62ad-4cbb765b850c" testName="CreateTest" computerName="WATSON1491" duration="00:00:00.0065056" startTime="2012-03-18T19:34:00.6790963-06:00" endTime="2012-03-18T19:34:00.6890969-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d37884f3-dd21-4546-a650-7546e28c8625">
+    </UnitTestResult>
+    <UnitTestResult executionId="aa168ad9-d897-4ba2-8dd8-39b2fd505072" testId="ffe04048-3d0c-a00a-f497-66ad2a87b507" testName="GetNextTest" computerName="WATSON1491" duration="00:00:00.0036639" startTime="2012-03-18T19:34:00.6940971-06:00" endTime="2012-03-18T19:34:00.7020976-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa168ad9-d897-4ba2-8dd8-39b2fd505072">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;0&gt;. </Message>
+          <StackTrace>   at PLLUnitTest.PersistentLinkedListTest.GetNextTest() in C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\PLLUnitTest\PersistentLinkedListTest.cs:line 380
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,9 @@
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\bin\Debug\Persistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\bin\Debug\Persistence.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\bin\Debug\ByteHelper.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\bin\Debug\Interfaces.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\bin\Debug\ByteHelper.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\bin\Debug\Interfaces.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\obj\Debug\Persistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Persistence\obj\Debug\Persistence.pdb

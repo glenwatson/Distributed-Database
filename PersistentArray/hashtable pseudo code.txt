@@ -1,0 +1,118 @@
+HashTable
+
++ static void Create(String hashtableName, int keySize, int valueSize, int tableSize)
+	create an array with hashtableName
+	insert keySize then valueSize then tableSize into the userHeader
+
++ static void Delete(String hashtableName)
+	delete the array
+
++ static PersistentLinkedList Open(String hashtableName)
+	open the array
+	Initialize the key & value size
+
+- InitKeyValueSize()
+	read in the userHeader
+	pull out the key size
+	convert to int
+	let keySize be the key size
+	pull out the value size
+	convert to int
+	let valueSize by the value size
+
++ void Close()
+	close the array
+
++ void Put(byte[] key, byte[] value)
+	let putIndex be GetNextAvailableSpaceForKey(key)'s Index
+	let elementBytes be key.append
+	call array.Put(putIndex, elementBytes)
+
+- HashElement GetNextAvailableSpaceForKey(byte[] key)
+	let hash be the hash of key
+	let nextAvailableArrayIndex be the mod of hash and tableSize
+	let element be GetElementAt(nextAvailableArrayIndex)
+	while element's key is equal to key, there was a collision
+		let nextIndex be GetNextHashIndex(element's Index)
+		let element be GetElementAt()
+		if element's key equals key, we've looped all the way around
+			throw new IndexOutOfRangeException("The hashtable is full");
+		
+	return element
+
+- HashElement GetElementWithKey(byte[] key)
+	let hash be the hash of key
+	let nextAvailableArrayIndex be the mod of hash and tableSize
+	let element be GetElementAt(nextAvailableArrayIndex)
+	while element's key is not equal to key,
+		let nextIndex be GetNextHashIndex(element's Index)
+		let element be GetElementAt(nextIndex)
+		if element's key equals key, we've looped all the way around
+			throw new ParameterException("key not found", "key");
+	return element
+
+- int GetNextHashIndex(int hash)
+	return hash + 1
+
++ byte[] Get(byte[] key)
+	return GetElementWithKey(key)'s value
+
++ void Remove(byte[] key)
+	let removingElement be GetElementWithKey(key)
+	set removingElement's key to an empty byte[]
+	set removingElement's value to an empty byte[]
+	PutElement(removingElement)
+	create an OrderedSet of indexes and hashes
+	foreach element while element is not empty
+		remove any elements with element's hash in orderedSet
+		add element to orderedSet
+	foreach candidate in orderedSet
+		remove candidate from hashTable
+		add candidate to hashTable
+	
+
+- void PutElement(HashElement element)
+	array.put(element.Index, element's data)
+
++ int GetUserHeaderSize()
+	return array's GetUserHeaderSize() + GetHeaderSize();
+
++ int GetHeaderSize()
+	return  3 * Storage.IntSize
+
++ void PutUserHeader(byte[] userHeader)
+	let newUserHeader be a new byte[] of size GetUserHeaderSize()
+	copy tableSize into 0 to tableSize's length of newUserHeader
+	copy keySize into tableSize's length to tableSize's length + keySize's length of newUserHeader
+	copy valueSize into tableSize's length + keySize's length to tableSize's length + keySize's length + valueSize's length of newUserHeader
+	copy all of userHeader into tableSize's length + keySize's length + valueSize's length to newUserHeader's length of newUserHeader
+
++ byte[] GetUserHeader()
+	let fullUserHeader be the array's userHeader
+	let subUserHeader be a new byte[] of size fullUserHeader's length - GetHeaderSize()
+	copy fullUserHeader from GetHeaderSize() to fullUserHeader's length into subUserHeader
+	return subUserHeader
+
+byte[] GetHeader()
+	let fullUserHeader be the array's userHeader
+	let subHeader be a new byte[] of size GetHeaderSize()
+	copy fullUserHeader from 0 to subHeader's length into subHeader
+	return subHeader
+	
+
+
+
+HashElement
+
+- byte[] key
+- byte[] value
+- int index
+
++ void PutKey(byte[] key, int keyLength)
+	let this.key be key expanded to keyLength
+	
++ void PutValue(byte[] value, int valueLength)
+	let this.value be value expanded to valueLength
+
++ byte[] GetData()
+	return key appended with value

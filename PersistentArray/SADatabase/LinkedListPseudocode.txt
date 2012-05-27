@@ -1,0 +1,65 @@
+Linked List
+
+- Get(index : int) : Node
+	Node node = head
+	for 0 to index & node is not null
+		let node be node's next
+	return node
+
++ Get(index : int) : byte[]
+	return the result of Get(index)'s data
+
++ AddToStart(buffer : byte[]) : int
+	Insert(0, buffer)
+
++ AddToEnd(buffer : byte[]) : int
+	Insert(Length(), buffer)
+	
++ AddBefore(nodeIndex : int, buffer : byte[]) : int
+	Insert(nodeIndex, buffer)
+
++ AddAfter(nodeIndex : int, buffer : byte[]) : int
+	Insert(nodexIndex+1, buffer)
+
+- Insert(nodeIndex : int, buffer : byte[]) : void
+	let insertingNode be a new Node containing buffer
+	if size is 0, //no nodes
+		let head be insertingNode
+		let tail be insertingNode
+	otherwise if nodeIndex is 0, //inserting at head
+		assert size is greater than 0 //at least one node
+		SetPreviousNext(insertingNode, head)
+		let head be insertingNode
+	otherwise if nodeIndex is Length(), //inserting at tail
+		assert size is greater than 0 //at least one node
+		SetPreviousNext(tail, insertingNode)
+		let tail be insertingNode
+	otherwise nodeIndex is not the first or last index & at least 2 nodes & not inserting on head or tail
+		let next be the node at nodeIndex
+		let previous be next's previous
+		SetPreviousNext(insertingNode, next)
+		SetPreviousNext(previous, insertingNode)
+	let size be size + 1
+
+
++ Update(nodeIndex : int, buffer : byte[]) : void
+	let updatingNode be Get(nodeIndex)
+	let updatingNode's data be buffer
+
++ Remove(nodeIndex : int) : byte[]
+	let removingNode be Get(nodeIndex)
+	if size is 0,
+		let head be null
+		let tail be null
+	otherwise if nodeIndex is 0, // at least 1 node
+		let head be head's next
+	otherwise if nodexIndex is Length(), // at least 1 node
+		let tail be tail's previous
+	otherwise nodeIndex is not the first or last index & there are at least 2 nodes & not inserting on head or tail
+		SetPreviousNext(removingNode's previous, removingNode's next)
+	let size be size - 1
+	return removingNode's data
+
+- SetPreviousNext(previous : Node, next : Node)
+	let previous's next be next
+	let next's previous be previous

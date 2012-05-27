@@ -1,0 +1,113 @@
+Heap
+- int freeSpaceHead
+
+int Allocate(int allocationSize)
+	find first continuous free space that is at least allocationSize + GetSizeSize()
+	update the freeSpaceLinkedList
+	HeapSpace space = new HeapSpace(freeSpaceIndex, freeSpaceIndex + allocationSize + GetSizeSize())
+	PutHeapSpace(space)
+	return token representing the freeSpace + GetSizeSize()
+
+int GetSizeSize()
+	return Ceiling((double) (array.GetElementSize()) / RandomAccessFile.IntSize);
+	
+- HeapSpace GetLastFreeSpaceBefore(int token)
+	if freeSpaceHead == HeapHeader.GetNull()
+		return null
+	HeapSpace before = GetHeapSpaceAt(freeSpaceHead)
+	int after;
+	while after.sizeIndex < token
+		before = GetNextFreeSpace(after)
+		after = before.Next
+	return before
+
+void Free(int token)
+	HeapSpace space = GetHeapSpaceAt(token);
+	
+	
+	if space.endIndex+1 == after.sizeIndex && before.endIndex+1 == space.sizeIndex
+		combine all 3
+		remove after from linked list
+	else if space.endIndex+1 == after.sizeIndex
+		combine with after
+		remove after from linked list
+		add space to linked list
+	else if before.endIndex+1 == space.sizeIndex
+		combine with before
+		no change to linked list
+
+void Put(int token, byte[] data)
+	HeapSpace space = GetSpaceAt(token)
+	if(space.GetSize(elementSize)
+		throw new IndexOutOfRangeException("The data put is too big to fit");
+	space.data = data;
+	PutHeapSpace(space)
+
+byte[] Get(int token);
+	HeapSpace space = GetSpaceAt(token)
+	return space.data
+
+
+void PutHeapSpace(HeapSpace space)
+	put space.GetSize() on space.sizeIndex
+	if space.data != null
+		for 0 to space.endIndex-space.startIndex
+			byte[] bytes = space.data.subarray(i, elementSize)
+			array.put(space.startIndex + i, bytes)
+
+HeapSpace GetSpaceAt(int token)
+	size = array.get(token-GetSizeSize()).toInt()
+	endIndex = token+size
+	HeapSpace space = new HeapSpace(token, endIndex)
+	RefreshData(space)
+	return space
+
+- void RefreshData(HeapSpace space)
+	byte[] newData = new byte[space.GetSize(elementSize)]
+	for 0 to space.endIndex-space.StartIndex
+		byte[] indexData = array.get(i)
+		Array.copy(indexData,0, newData, i*elementSize)
+	space.data = newData
+	
+
+
+HeapSpace
+- int startIndex  { get{sizeIndex+GetSizeSize()}}
+- int endIndex
++ int sizeIndex
++ byte[] Data
++ int GetSize(int elementSize)
+	return (endIndex - sizeIndex) * elementSize
+	
+	HeapSpace(int sizeIndex, int endIndex)
+
++ HeapSpace Split(int newEndIndex)
+	HeapSpace second = new HeapSpace(newEndIndex+1, this.endIndex)
+	this.endIndex = newEndIndex;
+	
+	
+void MergeAfter(HeapSpace after)
+	Merge(this, after)
+	
+- static void Merge(HeapSpace before, HeapSpace after)
+	AssertHeapSpaceComesRightBefore(before, after)
+	before.EndIndex = after.EndIndex
+	before.Data = null;
+	NullOut(after)
+	
++ void MergeAround(HeapSpace before, HeapSpace after)
+	Merge(before, this, after)
+
+- static void Merge(HeapSpace before, HeapSpace middle, HeapSpace after)
+	AssertHeapSpaceComesRightBefore(before, middle)
+	AssertHeapSpaceComesRightBefore(middle, after)
+	middle.sizeIndex = before.sizeIndex
+	middle.EndIndex = after.EndIndex
+	middle.Data = null;
+	NullOut(before)
+	NullOut(after)
+	
+- static void NullOut(HeapSpace space)
+	space.sizeIndex = -1;
+	space.endIndex = -1;
+	Data = null;

@@ -1,0 +1,15 @@
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\FilePersistenceUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\FilePersistenceUnitTest.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\ByteHelper.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\ByteHelperUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\FilePersistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\Interfaces.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\Persistence.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\ByteHelperUnitTest.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\ByteHelper.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\FilePersistence.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\Interfaces.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\bin\Debug\Persistence.pdb
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\obj\Debug\FilePersistenceUnitTest.dll
+C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\FilePersistenceUnitTest\obj\Debug\FilePersistenceUnitTest.pdb

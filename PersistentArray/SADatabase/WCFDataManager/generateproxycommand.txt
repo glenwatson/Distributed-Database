@@ -1,0 +1,1 @@
+﻿svcutil /d:"Client" /o:serviceproxy.cs /config:App.config http://localhost:5432/
