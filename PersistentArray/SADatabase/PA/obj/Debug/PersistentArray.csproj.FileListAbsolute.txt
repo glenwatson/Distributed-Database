@@ -1,5 +1,0 @@
-C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\PersistentArray\bin\Debug\PersistentArray.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\PersistentArray\bin\Debug\PersistentArray.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\PersistentArray\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\PersistentArray\obj\Debug\PersistentArray.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\PersistentArray\PersistentArray\obj\Debug\PersistentArray.pdb

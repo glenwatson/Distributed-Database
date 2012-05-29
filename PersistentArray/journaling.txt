@@ -1,0 +1,116 @@
+write
+read
+start staging
+start voting
+commit
+abort
+
+
+IQueue<T>
+	+ push(t : T) : void
+	+ peek() : T
+	+ pop()
+	
+IJournalStorage<T> : IQueue<T>
+	+ recover() : void
+	
+Serializer //Singleton
+	- _formatter : BinaryFormatter
+	
+	+_ serialize(obj : Object, stream : Stream) : void
+	+_ deserialize(stream : Stream) : Object
+	
+/*
+	+_ serialize(obj : Object) : byte[]
+		let memStream be a new MemoryStream
+		call _formatter's Serialize() passing in memStream & obj
+		let memStream's position be 0
+		let objBytes be a new byte[] the same size as memStream's size
+		read in memStream into objBytes
+		return objBytes
+	
+	+_ deserialize(objBytes : byte[]) : Object
+		let memStream be a new MemoryStream
+		write objBytes to memStream
+		let memStream's position be 0
+		call _formatter's Deserialize() passing in memStream
+		let deserializeObj be that result
+		return deserializeObj
+*/
+	
+PersistantFolderQueue<T> : IJournalStorage<T>
+	- JOURNAL_FORMAT : String = "s" //http://msdn.microsoft.com/en-us/library/az4se3k1.aspx
+	- _serializer : BinarySerializer
+	- directory : String
+	- queue : Queue<FileStream>
+	
+	+ PersistantFolderQueue(journalDirectory : String)
+		let directory be journalDirectory
+		init queue
+		call recover()
+	
+	- getHead() : FileStream
+		let file be the result of queue's peek()
+		return file
+	
+	+ recover() : void
+		let journalFiles be getAllJournalFiles()
+		call fillUpQueueWith passing in journalFiles
+		
+	- fillUpQueueWith(fileNames : IEnumerable<String>) : void
+		clear the queue
+		for each fileName in journalFiles
+			let file be the result of createJournalFile() passing in fileName
+			push() file on the queue
+			
+	- getAllJournalFiles() : IEnumerable<String>
+		let allFiles be all the files inside of directory
+		let journalFiles be allFiles filtered based on JOURNAL_FORMAT
+		sort journalFiles a-z
+		return journalFiles
+	
+	+ push(change : T) : void
+		let currentTimestamp be DateTime's now, toString'd passing in JOURNAL_FORMAT
+		let file be the result of createJournalFile() passing in currentTimestamp
+		call writeChangeToStream() passing in file & change
+		add file to queue
+		
+	- createJournalFile(fileName : String) : FileStream
+		return a new FileStream with no sharing & r/w permissions passing in fileName
+	
+	+ peek() : T
+		let file be the call to queue's pop()
+		let journaledChange be the result of the call to readChangeFromStream() passing in file
+		return journaledChange
+	
+	+ pop()
+		let file be the call to queue's pop()
+		flush() file //just to be sure
+		close() file (?)
+		delete file
+		
+	- writeChangeToStream(stream : Stream, change : T) : void
+		call _serializer's serialize() passing in stream & change
+		call stream's flush()
+		let stream's position be 0
+	
+	- readChangeFromStream(stream : Stream) : T
+		call _serializer's deserialze() passing in stream
+		let change be that result
+		let stream's position be 0
+		return change
+
+Journal<T>
+	- journalStorage : IJournalStorage<T>
+	
+	+ Journal(journalLocation : URL)
+		new up journalStorage
+	
+	+ addChange(change : T) : void
+		call push() on journalStorage passing in change
+	
+	+ removeChange() : void
+		call pop() on journalStorage
+		
+	+ recover() : void
+		call recover() on journalStorage

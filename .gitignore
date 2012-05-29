@@ -8,3 +8,7 @@ _ReSharper.SADatabase
 
 # mstest test results
 TestResults
+
+
+*.user
+*.suo

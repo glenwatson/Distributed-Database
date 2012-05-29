@@ -1,8 +1,0 @@
-﻿Code version: 6.1.37.86
-Assembly name System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 mvid {b53305d1-7565-42e2-bfe3-a98fdcd07c39}
-* ref mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-  mvid {89d33fd5-0701-464e-8ebb-a6d19f781c96}
-* ref System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-  mvid {275dfa15-c566-407d-893a-33ef21db2cef}
-* ref System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-  mvid {c62d0ac7-313d-4446-9ef6-018846137c3a}

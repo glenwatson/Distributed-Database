@@ -1,5 +1,0 @@
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelper\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelper\bin\Debug\ByteHelper.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelper\bin\Debug\ByteHelper.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelper\obj\Debug\ByteHelper.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\ByteHelper\obj\Debug\ByteHelper.pdb
