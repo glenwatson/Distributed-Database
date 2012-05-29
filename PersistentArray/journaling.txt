@@ -11,8 +11,36 @@ IQueue<T>
 	+ peek() : T
 	+ pop()
 	
-PersistantFolderQueue : IQueue<T>
+IJournalStorage<T> : IQueue<T>
+	+ recover() : void
+	
+Serializer //Singleton
+	- _formatter : BinaryFormatter
+	
+	+_ serialize(obj : Object, stream : Stream) : void
+	+_ deserialize(stream : Stream) : Object
+	
+/*
+	+_ serialize(obj : Object) : byte[]
+		let memStream be a new MemoryStream
+		call _formatter's Serialize() passing in memStream & obj
+		let memStream's position be 0
+		let objBytes be a new byte[] the same size as memStream's size
+		read in memStream into objBytes
+		return objBytes
+	
+	+_ deserialize(objBytes : byte[]) : Object
+		let memStream be a new MemoryStream
+		write objBytes to memStream
+		let memStream's position be 0
+		call _formatter's Deserialize() passing in memStream
+		let deserializeObj be that result
+		return deserializeObj
+*/
+	
+PersistantFolderQueue<T> : IJournalStorage<T>
 	- JOURNAL_FORMAT : String = "s" //http://msdn.microsoft.com/en-us/library/az4se3k1.aspx
+	- _serializer : BinarySerializer
 	- directory : String
 	- queue : Queue<FileStream>
 	
@@ -57,58 +85,32 @@ PersistantFolderQueue : IQueue<T>
 	
 	+ pop()
 		let file be the call to queue's pop()
-		flush file //just to be sure
-		close file (?)
+		flush() file //just to be sure
+		close() file (?)
 		delete file
 		
-	- writeChangeToStream(stream : Stream, change, T) : void
-		let changeBytes be change's serialize()
-		call stream's write passing in changeBytes
+	- writeChangeToStream(stream : Stream, change : T) : void
+		call _serializer's serialize() passing in stream & change
 		call stream's flush()
 		let stream's position be 0
 	
 	- readChangeFromStream(stream : Stream) : T
-		let change be 
-			/* Instead of trying to get the user to give us a deserialze method, simply use the built-in .Net BinaryFormatter(BF) for serialization and deserialization.
-			This brings into question: Do we need IJournalChange?
-			If we used the BF, is there a way to force the type to have the [Serializable] attribute? Or ISerializable?
-			
-			It looks like there no way to force the SerializableAttribute using an interface, so I'll probably get rid of the interface.
-			
-			*/
+		call _serializer's deserialze() passing in stream
+		let change be that result
 		let stream's position be 0
+		return change
 
-	
-JournalStorage<T>
-	- storeage : IQueue<T>
-	
-	+ JournalStorage(location : URL)
-		new up storage at location
-	
-	+ addChange(change : T) : void
-		call push() on storeage passing in change
-	
-	+ removeChange(change : T) : void
-		call pop() on storeage
-	
-	+ getChange() : T
-		call peek() on storeage
-		return the result
-	
-	
 Journal<T>
-	- journalStorage : JournalStorage
+	- journalStorage : IJournalStorage<T>
 	
 	+ Journal(journalLocation : URL)
 		new up journalStorage
 	
-	+ atemptRecovery() : T
-		call peek() on journalStoreage
-		return the change, if any
-	
 	+ addChange(change : T) : void
-		call addChange() on journalStoreage
+		call push() on journalStorage passing in change
 	
-	+ removeChange(change : T) : void
-		call removeChange() on journalStoreage
-	
+	+ removeChange() : void
+		call pop() on journalStorage
+		
+	+ recover() : void
+		call recover() on journalStorage
