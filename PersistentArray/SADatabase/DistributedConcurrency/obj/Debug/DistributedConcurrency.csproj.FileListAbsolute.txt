@@ -1,7 +1,0 @@
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DistributedConcurrency\bin\Debug\DistributedConcurrency.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DistributedConcurrency\bin\Debug\DistributedConcurrency.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DistributedConcurrency\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DistributedConcurrency\obj\Debug\DistributedConcurrency.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DistributedConcurrency\obj\Debug\DistributedConcurrency.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DistributedConcurrency\bin\Debug\ByteHelper.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DistributedConcurrency\bin\Debug\ByteHelper.pdb

@@ -1,8 +1,0 @@
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\TransactionManager\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\TransactionManager\bin\Debug\TransactionManager.dll.config
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\TransactionManager\bin\Debug\TransactionManager.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\TransactionManager\bin\Debug\TransactionManager.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\TransactionManager\bin\Debug\DistributedConcurrency.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\TransactionManager\bin\Debug\DistributedConcurrency.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\TransactionManager\obj\Debug\TransactionManager.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\TransactionManager\obj\Debug\TransactionManager.pdb

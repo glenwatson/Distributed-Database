@@ -1,9 +1,0 @@
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\bin\Debug\DCConsoleTest.exe
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\bin\Debug\DCConsoleTest.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\bin\Debug\DistributedConcurrency.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\bin\Debug\ByteHelper.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\bin\Debug\DistributedConcurrency.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\bin\Debug\ByteHelper.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\obj\x86\Debug\DCConsoleTest.exe
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\DCConsoleTest\obj\x86\Debug\DCConsoleTest.pdb

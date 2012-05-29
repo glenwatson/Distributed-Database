@@ -1,5 +1,0 @@
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Interfaces\bin\Debug\Interfaces.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Interfaces\bin\Debug\Interfaces.pdb
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Interfaces\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Interfaces\obj\Debug\Interfaces.dll
-C:\Users\gwatson\Desktop\SA\PersistentArray\SADatabase\Interfaces\obj\Debug\Interfaces.pdb
