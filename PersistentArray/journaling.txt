@@ -1,0 +1,114 @@
+write
+read
+start staging
+start voting
+commit
+abort
+
+
+IQueue<T>
+	+ push(t : T) : void
+	+ peek() : T
+	+ pop()
+	
+PersistantFolderQueue : IQueue<T>
+	- JOURNAL_FORMAT : String = "s" //http://msdn.microsoft.com/en-us/library/az4se3k1.aspx
+	- directory : String
+	- queue : Queue<FileStream>
+	
+	+ PersistantFolderQueue(journalDirectory : String)
+		let directory be journalDirectory
+		init queue
+		call recover()
+	
+	- getHead() : FileStream
+		let file be the result of queue's peek()
+		return file
+	
+	+ recover() : void
+		let journalFiles be getAllJournalFiles()
+		call fillUpQueueWith passing in journalFiles
+		
+	- fillUpQueueWith(fileNames : IEnumerable<String>) : void
+		clear the queue
+		for each fileName in journalFiles
+			let file be the result of createJournalFile() passing in fileName
+			push() file on the queue
+			
+	- getAllJournalFiles() : IEnumerable<String>
+		let allFiles be all the files inside of directory
+		let journalFiles be allFiles filtered based on JOURNAL_FORMAT
+		sort journalFiles a-z
+		return journalFiles
+	
+	+ push(change : T) : void
+		let currentTimestamp be DateTime's now, toString'd passing in JOURNAL_FORMAT
+		let file be the result of createJournalFile() passing in currentTimestamp
+		call writeChangeToStream() passing in file & change
+		add file to queue
+		
+	- createJournalFile(fileName : String) : FileStream
+		return a new FileStream with no sharing & r/w permissions passing in fileName
+	
+	+ peek() : T
+		let file be the call to queue's pop()
+		let journaledChange be the result of the call to readChangeFromStream() passing in file
+		return journaledChange
+	
+	+ pop()
+		let file be the call to queue's pop()
+		flush file //just to be sure
+		close file (?)
+		delete file
+		
+	- writeChangeToStream(stream : Stream, change, T) : void
+		let changeBytes be change's serialize()
+		call stream's write passing in changeBytes
+		call stream's flush()
+		let stream's position be 0
+	
+	- readChangeFromStream(stream : Stream) : T
+		let change be 
+			/* Instead of trying to get the user to give us a deserialze method, simply use the built-in .Net BinaryFormatter(BF) for serialization and deserialization.
+			This brings into question: Do we need IJournalChange?
+			If we used the BF, is there a way to force the type to have the [Serializable] attribute? Or ISerializable?
+			
+			It looks like there no way to force the SerializableAttribute using an interface, so I'll probably get rid of the interface.
+			
+			*/
+		let stream's position be 0
+
+	
+JournalStorage<T>
+	- storeage : IQueue<T>
+	
+	+ JournalStorage(location : URL)
+		new up storage at location
+	
+	+ addChange(change : T) : void
+		call push() on storeage passing in change
+	
+	+ removeChange(change : T) : void
+		call pop() on storeage
+	
+	+ getChange() : T
+		call peek() on storeage
+		return the result
+	
+	
+Journal<T>
+	- journalStorage : JournalStorage
+	
+	+ Journal(journalLocation : URL)
+		new up journalStorage
+	
+	+ atemptRecovery() : T
+		call peek() on journalStoreage
+		return the change, if any
+	
+	+ addChange(change : T) : void
+		call addChange() on journalStoreage
+	
+	+ removeChange(change : T) : void
+		call removeChange() on journalStoreage
+	
