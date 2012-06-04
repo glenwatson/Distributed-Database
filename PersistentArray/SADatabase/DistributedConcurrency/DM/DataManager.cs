@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
+using DistributedConcurrency.DM.Journaling;
 using DistributedConcurrency.Shared;
 
 namespace DistributedConcurrency.DM
@@ -9,6 +10,8 @@ namespace DistributedConcurrency.DM
     {
         private readonly PrivateWorkspace _workspace = new PrivateWorkspace();
         private readonly LockManager _lockManager = new LockManager();
+        //TODO: get rid of hard coded path
+        private readonly Journal<Change> _journal = new Journal<Change>(new Uri(@"C:\DB\Journal\"));
         private readonly ObjectReadWriter _readWriter = new ObjectReadWriter();
         private readonly DMServer _server = new DMServer(11000);
 
