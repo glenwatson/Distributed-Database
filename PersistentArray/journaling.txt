@@ -14,11 +14,12 @@ IQueue<T>
 IJournalStorage<T> : IQueue<T>
 	+ recover() : void
 	
-Serializer //Singleton
+Serializer<T> //Singleton
 	- _formatter : BinaryFormatter
 	
-	+_ serialize(obj : Object, stream : Stream) : void
-	+_ deserialize(stream : Stream) : Object
+	-_ getFormatter() : BinaryFormatter
+	+_ serialize(t : T, stream : Stream) : void
+	+_ deserialize(stream : Stream) : T
 	
 /*
 	+_ serialize(obj : Object) : byte[]
@@ -40,7 +41,6 @@ Serializer //Singleton
 	
 PersistantFolderQueue<T> : IJournalStorage<T>
 	- JOURNAL_FORMAT : String = "s" //http://msdn.microsoft.com/en-us/library/az4se3k1.aspx
-	- _serializer : BinarySerializer
 	- directory : String
 	- queue : Queue<FileStream>
 	
@@ -59,11 +59,11 @@ PersistantFolderQueue<T> : IJournalStorage<T>
 		
 	- fillUpQueueWith(fileNames : IEnumerable<String>) : void
 		clear the queue
-		for each fileName in journalFiles
+		for each fileName in journalFiles,
 			let file be the result of createJournalFile() passing in fileName
 			push() file on the queue
 			
-	- getAllJournalFiles() : IEnumerable<String>
+	- getAllJournalFiles() : List<String>
 		let allFiles be all the files inside of directory
 		let journalFiles be allFiles filtered based on JOURNAL_FORMAT
 		sort journalFiles a-z
@@ -78,13 +78,14 @@ PersistantFolderQueue<T> : IJournalStorage<T>
 	- createJournalFile(fileName : String) : FileStream
 		return a new FileStream with no sharing & r/w permissions passing in fileName
 	
-	+ peek() : T
+	+ peek() : T //could cache the file for use in pop() since 99% of the time peek() will be called before pop()
 		let file be the call to queue's pop()
 		let journaledChange be the result of the call to readChangeFromStream() passing in file
 		return journaledChange
 	
 	+ pop()
-		let file be the call to queue's pop()
+		let file be the call to queue's peek()
+		pop() queue
 		flush() file //just to be sure
 		close() file (?)
 		delete file
@@ -103,7 +104,7 @@ PersistantFolderQueue<T> : IJournalStorage<T>
 Journal<T>
 	- journalStorage : IJournalStorage<T>
 	
-	+ Journal(journalLocation : URL)
+	+ Journal(journalLocation : URI)
 		new up journalStorage
 	
 	+ addChange(change : T) : void

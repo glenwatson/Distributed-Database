@@ -37,6 +37,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DM\DMServer.cs" />
+    <Compile Include="DM\Journaling\IJournalStorage.cs" />
+    <Compile Include="DM\Journaling\IQueue.cs" />
+    <Compile Include="DM\Journaling\Journal.cs" />
+    <Compile Include="DM\Journaling\PersistantFolderQueue.cs" />
+    <Compile Include="DM\Journaling\Serializer.cs" />
     <Compile Include="DM\ObjectReadWriter.cs" />
     <Compile Include="Shared\Change.cs" />
     <Compile Include="Shared\Communication\IMessage.cs" />
@@ -78,6 +83,7 @@
       <Name>ByteHelper</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
