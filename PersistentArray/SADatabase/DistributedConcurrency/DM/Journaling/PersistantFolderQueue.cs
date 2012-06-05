@@ -27,6 +27,11 @@ namespace DistributedConcurrency.DM.Journaling
 
         public void Recover()
         {
+            RefreshQueueWithFiles();
+        }
+
+        private void RefreshQueueWithFiles()
+        {
             List<String> journalFiles = GetAllJournalFiles();
             FillUpQueueWith(journalFiles);
         }
@@ -80,6 +85,23 @@ namespace DistributedConcurrency.DM.Journaling
             file.Flush(); //flush() file //just to be sure
             file.Close(); //close() file (?)
             File.Delete(file.Name); //delete file
+        }
+
+        public void RemoveAll()
+        {
+            DeleteEntireQueue();
+
+            RefreshQueueWithFiles();
+
+            DeleteEntireQueue();
+        }
+
+        private void DeleteEntireQueue()
+        {
+            while (_queue.Count > 0)
+            {
+                Pop();
+            }
         }
 
         private void WriteChangeToStream(Stream stream, T change)

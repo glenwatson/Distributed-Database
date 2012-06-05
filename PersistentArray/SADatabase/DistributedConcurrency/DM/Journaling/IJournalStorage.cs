@@ -8,5 +8,6 @@ namespace DistributedConcurrency.DM.Journaling
     interface IJournalStorage<T> : IQueue<T>
     {
         void Recover();
+        void RemoveAll();
     }
 }

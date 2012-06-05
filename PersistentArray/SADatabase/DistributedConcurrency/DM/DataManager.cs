@@ -56,6 +56,7 @@ namespace DistributedConcurrency.DM
         public void Abort()
         {
             Restart();
+            _journal.RemoveAll();
             Monitor.Exit(_workspace);
         }
 
@@ -78,10 +79,15 @@ namespace DistributedConcurrency.DM
             bool successfulStage = true;
             foreach (Change change in _workspace)
             {
-                if (!_lockManager.GetLock(change.Location) || (change.IsRead && (change.Value != Read(change.Location.ObjectLocation)))) // if I can't get the lock, fail OR if change is a read & change's value is not what was there previously, fail
+                // if I can't get the lock, fail OR if change is a read & change's value is not what was there previously, fail
+                if (!_lockManager.GetLock(change.Location) || (change.IsRead && (change.Value != Read(change.Location.ObjectLocation))))
                 {
                     successfulStage = false;
                     break;
+                }
+                else //change was successfully staged
+                {
+                    _journal.AddChange(change); //journal the change
                 }
             }
 

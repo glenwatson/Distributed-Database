@@ -28,5 +28,10 @@ namespace DistributedConcurrency.DM.Journaling
         {
             _journalStorage.Recover();
         }
+
+        internal void RemoveAll()
+        {
+            _journalStorage.RemoveAll();
+        }
     }
 }

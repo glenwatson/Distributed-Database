@@ -53,9 +53,11 @@ DM
 
 + EndStagingPhase() : Vote
 	let vote be "commit"
-	foreach change in workspace
+	foreach change in workspace & while vote is "commit"
 		let successfulChangePrep be the result of ChangePrep passing in change
-		if successfulChangePrep is false,
+		if successfulChangePrep is true,
+			journal the change
+		else successfulChangePrep is false,
 			let vote be "abort"
 	return vote "commit"
 	
@@ -74,7 +76,9 @@ DM
 	foreach change in workspace
 		commit change
 		release lock
+		remove journal
 
 + Abort() : void
 	release all locks
+	remove all journals
 	wipe workspace

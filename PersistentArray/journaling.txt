@@ -13,6 +13,7 @@ IQueue<T>
 	
 IJournalStorage<T> : IQueue<T>
 	+ recover() : void
+	+ removeAll() : void
 	
 Serializer<T> //Singleton
 	- _formatter : BinaryFormatter
@@ -90,6 +91,12 @@ PersistantFolderQueue<T> : IJournalStorage<T>
 		close() file (?)
 		delete file
 		
+	+ removeAll() : void
+		delete all files from the queue
+		read in any journal files that were not in the queue
+		add them to the queue (why not? we already have a empty FileStream queue at this point)
+		delete all from from the queue
+		
 	- writeChangeToStream(stream : Stream, change : T) : void
 		call _serializer's serialize() passing in stream & change
 		call stream's flush()
@@ -115,3 +122,6 @@ Journal<T>
 		
 	+ recover() : void
 		call recover() on journalStorage
+		
+	+ removeAll() : void
+		call removeAll() on journalStorage
