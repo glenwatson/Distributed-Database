@@ -15,21 +15,30 @@ namespace DCConsoleTest
 
             DataManager.GetInstance().Start();
 
-            Transaction t = new Transaction();
-            t.Begin();
             DMLocation dmLocation = new DMLocation(@"db://[fe80::a91e:3a94:e27a:9035%13]:11000");
             ObjectLocation objectLocation0 = new ObjectLocation(ObjectType.FileWithHeader, @"C:\DB\arrayName.db", 0);
             ObjectLocation objectLocation1 = new ObjectLocation(ObjectType.FileWithHeader, @"C:\DB\arrayName.db", 1);
             DataLocation dataLocation0 = new DataLocation(dmLocation, objectLocation0);
             DataLocation dataLocation1 = new DataLocation(dmLocation, objectLocation1);
 
-            
+            //First transaction
+            Transaction t = new Transaction();
+            t.Begin();
+
             t.Write(dataLocation0, 42);
             t.Write(dataLocation1, 77);
             Console.WriteLine("Read: " + t.Read(dataLocation0));
             Console.WriteLine("Read: " + t.Read(dataLocation1));
 
+            //Second transaction
+            Transaction t2 = new Transaction();
+            t2.Begin();
+            t2.Write(dataLocation1, 99);
+            
+
             t.End();
+
+            t2.End();
 
             Console.ReadLine();
         }

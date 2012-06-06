@@ -46,6 +46,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CommunicationTest.cs" />
+    <Compile Include="JournalTest.cs" />
     <Compile Include="LockManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
