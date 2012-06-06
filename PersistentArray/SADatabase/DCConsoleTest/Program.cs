@@ -17,7 +17,7 @@ namespace DCConsoleTest
 
             Transaction t = new Transaction();
             t.Begin();
-            DMLocation dmLocation = new DMLocation(@"db://[fe80::c00d:7562:2dc5:dcb7%24]:11000");
+            DMLocation dmLocation = new DMLocation(@"db://[fe80::a91e:3a94:e27a:9035%13]:11000");
             ObjectLocation objectLocation0 = new ObjectLocation(ObjectType.FileWithHeader, @"C:\DB\arrayName.db", 0);
             ObjectLocation objectLocation1 = new ObjectLocation(ObjectType.FileWithHeader, @"C:\DB\arrayName.db", 1);
             DataLocation dataLocation0 = new DataLocation(dmLocation, objectLocation0);

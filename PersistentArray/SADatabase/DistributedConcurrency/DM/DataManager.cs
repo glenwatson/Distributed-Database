@@ -16,12 +16,13 @@ namespace DistributedConcurrency.DM
         private readonly DMServer _server = new DMServer(11000);
 
         #region Singleton
-        private static DataManager _dm;
+        private static DataManager _dm = new DataManager();
 
         private DataManager(){}
         public static DataManager GetInstance()
         {
-            return _dm ?? (_dm = new DataManager());
+            //return _dm ?? (_dm = new DataManager());
+            return _dm;
         }
 
         #endregion
@@ -48,6 +49,8 @@ namespace DistributedConcurrency.DM
             {
                 if(change.IsWrite)
                     Write(change.Location.ObjectLocation, change.Value);
+                Console.WriteLine("Un-Journaling " + change.GetHashCode());
+                _journal.RemoveChange();
                 _lockManager.RelaseLock(change.Location);
             }
             Monitor.Exit(_workspace);
@@ -55,14 +58,19 @@ namespace DistributedConcurrency.DM
 
         public void Abort()
         {
-            Restart();
-            _journal.RemoveAll();
+            RemoveAllChanges();
             Monitor.Exit(_workspace);
         }
 
         public void Restart()
         {
+            RemoveAllChanges();
+        }
+
+        private void RemoveAllChanges()
+        {
             _workspace.RemoveAll();
+            _journal.RemoveAll();
         }
 
         public void StageChange(Change change)
@@ -79,19 +87,26 @@ namespace DistributedConcurrency.DM
             bool successfulStage = true;
             foreach (Change change in _workspace)
             {
-                // if I can't get the lock, fail OR if change is a read & change's value is not what was there previously, fail
-                if (!_lockManager.GetLock(change.Location) || (change.IsRead && (change.Value != Read(change.Location.ObjectLocation))))
-                {
-                    successfulStage = false;
+                successfulStage = StageChange(successfulStage, change);
+                if (!successfulStage)
                     break;
-                }
-                else //change was successfully staged
-                {
-                    _journal.AddChange(change); //journal the change
-                }
             }
 
             return successfulStage ? Vote.Commit : Vote.Abort;
+        }
+
+        private bool StageChange(bool successfulStage, Change change)
+        {
+            // if I can't get the lock, fail OR if change is a read & change's value is not what was there previously, fail
+            if (!_lockManager.GetLock(change.Location) || (change.IsRead && (change.Value != Read(change.Location.ObjectLocation))))
+            {
+                successfulStage = false;
+            }
+            else //change was successfully staged
+            {
+                _journal.AddChange(change); //journal the change
+            }
+            return successfulStage;
         }
         #endregion
 

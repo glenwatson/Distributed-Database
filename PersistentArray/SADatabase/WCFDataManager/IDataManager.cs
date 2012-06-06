@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using DistributedConcurrency;
+using DistributedConcurrency.Shared;
 using Interfaces;
 
 namespace WCFDataManager

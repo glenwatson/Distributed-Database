@@ -17,7 +17,9 @@ namespace DistributedConcurrency.DM
         {
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
             IPEndPoint localEP = new IPEndPoint(ipHostInfo.AddressList[0], port);
-            Console.WriteLine("New socket listening at "+localEP.Address+":"+localEP.Port);
+            Console.WriteLine("New socket listening at {0}:{1}", localEP.Address, localEP.Port);
+            for (int i = 1; i < ipHostInfo.AddressList.Length; i++)
+                Console.WriteLine("                        {0}:{1}", ipHostInfo.AddressList[i].ToString(), localEP.Port);
             _server = new Socket(localEP.Address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             _server.Bind(localEP);
         }

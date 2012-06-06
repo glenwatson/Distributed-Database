@@ -1,4 +1,5 @@
 using DistributedConcurrency;
+using DistributedConcurrency.Shared;
 
 namespace WCFDataManager
 {

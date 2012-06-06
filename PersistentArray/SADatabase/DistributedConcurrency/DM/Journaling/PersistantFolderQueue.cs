@@ -8,13 +8,14 @@ namespace DistributedConcurrency.DM.Journaling
 {
     class PersistantFolderQueue<T> : IJournalStorage<T>
     {
-        private String JOURNAL_FORMAT = "s"; //http://msdn.microsoft.com/en-us/library/az4se3k1.aspx
+        private String JOURNAL_FORMAT = "yyyy-MM-dd H-mm-ss-fffffZzz"; //http://msdn.microsoft.com/en-us/library/az4se3k1.aspx
 	    private String _directory;
 	    private Queue<FileStream> _queue;
 
         public PersistantFolderQueue(String journalDirectory)
         {
             _directory = journalDirectory; //let directory be journalDirectory
+            Directory.CreateDirectory(journalDirectory);
 		    _queue = new Queue<FileStream>(); //init queue
 		    Recover(); //call recover()
         }
@@ -69,7 +70,7 @@ namespace DistributedConcurrency.DM.Journaling
         private FileStream CreateJournalFile(String fileName)
         {
             //return a new FileStream with no sharing & r/w permissions passing in fileName
-            return new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+            return new FileStream(_directory + fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
         }
 
         public T Peek() //could cache the file for use in pop() since 99% of the time peek() will be called before pop()
