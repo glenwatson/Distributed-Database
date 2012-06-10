@@ -55,9 +55,7 @@ DM
 	let vote be "commit"
 	foreach change in workspace & while vote is "commit"
 		let successfulChangePrep be the result of ChangePrep passing in change
-		if successfulChangePrep is true,
-			journal the change
-		else successfulChangePrep is false,
+		if successfulChangePrep is false,
 			let vote be "abort"
 	return vote "commit"
 	
@@ -74,7 +72,10 @@ DM
 	
 + End() : void
 	foreach change in workspace
+		journal the change
+	foreach change in workspace
 		commit change
+		remove the journal
 		release lock
 		remove journal
 

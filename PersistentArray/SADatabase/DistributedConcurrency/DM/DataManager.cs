@@ -46,6 +46,10 @@ namespace DistributedConcurrency.DM
         {
             foreach (Change change in _workspace)
             {
+                _journal.AddChange(change); //journal the change
+            }
+            foreach (Change change in _workspace)
+            {
                 if(change.IsWrite)
                     Write(change.Location.ObjectLocation, change.Value);
                 Console.WriteLine("Un-Journaling " + change.GetHashCode());
@@ -100,10 +104,6 @@ namespace DistributedConcurrency.DM
             if (!_lockManager.GetLock(change.Location) || (change.IsRead && (change.Value != Read(change.Location.ObjectLocation))))
             {
                 successfulStage = false;
-            }
-            else //change was successfully staged
-            {
-                _journal.AddChange(change); //journal the change
             }
             return successfulStage;
         }
