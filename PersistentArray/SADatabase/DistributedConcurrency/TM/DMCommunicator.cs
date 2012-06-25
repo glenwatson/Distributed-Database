@@ -44,7 +44,6 @@ namespace DistributedConcurrency.TM
                 //{
                 //    Console.WriteLine("Could not connect to Data Manager at "+dmLocation.URI);
                 //}
-                
             }
         }
 

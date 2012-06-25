@@ -10,7 +10,6 @@ namespace DistributedConcurrency.DM
 
         public bool GetLock(DataLocation dataLocation)
         {
-            System.Console.WriteLine("Locking " + dataLocation.GetHashCode());
             lock (_locks)
             {
                 if (_locks.Any(takenLock => takenLock.Overlap(dataLocation)))
@@ -25,7 +24,6 @@ namespace DistributedConcurrency.DM
 
         public void RelaseLock(DataLocation dataLocation)
         {
-            System.Console.WriteLine("Releasing " + dataLocation.GetHashCode());
             lock (_locks)
             {
                 _locks.Remove(new Lock(dataLocation));

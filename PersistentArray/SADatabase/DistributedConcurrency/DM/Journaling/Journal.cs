@@ -16,7 +16,6 @@ namespace DistributedConcurrency.DM.Journaling
 	
 	    public void AddChange(T change)
         {
-            Console.WriteLine("Journaling " + change.GetHashCode());
             _journalStorage.Push(change);
         }
 	
@@ -32,7 +31,6 @@ namespace DistributedConcurrency.DM.Journaling
 
         internal void RemoveAll()
         {
-            Console.WriteLine("Un-Journaling all");
             _journalStorage.RemoveAll();
         }
     }

@@ -52,7 +52,6 @@ namespace DistributedConcurrency.DM
             {
                 if(change.IsWrite)
                     Write(change.Location.ObjectLocation, change.Value);
-                Console.WriteLine("Un-Journaling " + change.GetHashCode());
                 _journal.RemoveChange();
                 _lockManager.RelaseLock(change.Location);
             }
