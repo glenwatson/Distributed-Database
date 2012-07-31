@@ -14,7 +14,7 @@ namespace DistributedConcurrency.TM
 
         public DataManagerClient(DMLocation dmLocation)
         {
-            _socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
+            _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _socket.Connect(dmLocation.URI.Host, dmLocation.URI.Port);
         }
 

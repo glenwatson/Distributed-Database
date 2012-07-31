@@ -13,9 +13,11 @@ namespace DCConsoleTest
         static void Main(string[] args)
         {
 
-            DataManager.GetInstance().Start();
+            DataManager dm = new DataManager(11000);
+            dm.Start();
+            dm.GetLocation();
 
-            DMLocation dmLocation = new DMLocation(@"db://[fe80::a91e:3a94:e27a:9035%13]:11000");
+            DMLocation dmLocation = new DMLocation("127.0.0.1:11000");//(@"db://[fe80::a91e:3a94:e27a:9035%13]:11000");
             ObjectLocation objectLocation0 = new ObjectLocation(ObjectType.FileWithHeader, @"C:\DB\arrayName.db", 0);
             ObjectLocation objectLocation1 = new ObjectLocation(ObjectType.FileWithHeader, @"C:\DB\arrayName.db", 1);
             DataLocation dataLocation0 = new DataLocation(dmLocation, objectLocation0);
@@ -34,7 +36,7 @@ namespace DCConsoleTest
             Transaction t2 = new Transaction();
             t2.Begin();
             t2.Write(dataLocation1, 99);
-            
+            Console.WriteLine("Read: " + t2.Read(dataLocation1));
 
             t.End();
 

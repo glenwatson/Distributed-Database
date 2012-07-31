@@ -13,18 +13,13 @@ namespace DistributedConcurrency.DM
         //TODO: get rid of hard coded path
         private readonly Journal<Change> _journal = new Journal<Change>(new Uri(@"C:\DB\Journal\"));
         private readonly ObjectReadWriter _readWriter = new ObjectReadWriter();
-        private readonly DMServer _server = new DMServer(11000);
+        private readonly DMServer _server;
 
-        #region Singleton
-        private static DataManager _dm;
-
-        private DataManager(){}
-        public static DataManager GetInstance()
+        public DataManager(int port)
         {
-            return _dm ?? (_dm = new DataManager());
+            //TODO: Move to config file, or something....
+            _server = new DMServer(port, this);
         }
-
-        #endregion
 
         private void Write(ObjectLocation objLocation, byte value)
         {
@@ -120,7 +115,12 @@ namespace DistributedConcurrency.DM
 
         private void AssertDMLocationIsMe(DMLocation dmLocation)
         {
+            //TODO: assert yourself!
+        }
 
+        public DMLocation GetLocation()
+        {
+            return new DMLocation(_server.Location.ToString());
         }
     }
 }

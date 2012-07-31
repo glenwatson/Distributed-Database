@@ -12,13 +12,26 @@ namespace DistributedConcurrency.DM
     public class DMServer : ICommandMessageHandler
     {
         private readonly Socket _server;
-        
-        public DMServer(int port)
+        private readonly IDataManager _dataManager;
+
+        public EndPoint Location
+        {
+            get
+            {
+                return _server.LocalEndPoint;
+            }
+        }
+
+        public DMServer(int port, IDataManager dataManager)
         {
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPEndPoint localEP = new IPEndPoint(ipHostInfo.AddressList[0], port);
+            //TODO: get rid of localhost
+            IPAddress ipAddr = new IPAddress(0x0100007f);
+            IPEndPoint localEP = new IPEndPoint(ipAddr/*ipHostInfo.AddressList[0]*/, port);
             _server = new Socket(localEP.Address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             _server.Bind(localEP);
+
+            _dataManager = dataManager;
         }
 
         public void Start(int backlog)
@@ -49,47 +62,42 @@ namespace DistributedConcurrency.DM
 
         }
 
-        private DataManager GetDM()
-        {
-            return DataManager.GetInstance();
-        }
-
         #region ICommandMessageHandler
         public void HandleBeginMessage(BeginMessage beginMessage)
         {
-            GetDM().Begin();
+            _dataManager.Begin();
         }
 
         public void HandleEndMessage(EndMessage endMessage)
         {
-            GetDM().End();
+            _dataManager.End();
         }
 
         public void HandleReadMessage(ReadMessage readMessage, Socket socket)
         {
-            byte readValue = GetDM().Read(readMessage.ObjectLocation);
+            byte readValue = _dataManager.Read(readMessage.ObjectLocation);
             SocketCommunicator.Send(socket, new ReadResponse{Value = readValue});
         }
 
         public void HandleEndStagingPhaseMessage(EndStagingPhaseMessage endStagingPhaseMessage, Socket socket)
         {
-            Vote vote = GetDM().EndStagingPhase();
+            Vote vote = _dataManager.EndStagingPhase();
             SocketCommunicator.Send(socket, new EndStagingPhaseResponse{Vote = vote});
         }
 
         public void HandleStageChangeMessage(StageChangeMessage stageChangeMessage)
         {
-            GetDM().StageChange(stageChangeMessage.Change);
+            _dataManager.StageChange(stageChangeMessage.Change);
         }
 
         public void HandleAbortMessage(AbortMessage abortMessage)
         {
-            GetDM().Abort();
+            _dataManager.Abort();
         }
 
         public void HandleRestartMessage(RestartMessage restartMessage)
         {
-            GetDM().Restart();
+            _dataManager.Restart();
         }
 
         #endregion

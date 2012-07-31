@@ -9,9 +9,10 @@ namespace DistributedConcurrency.Shared
         //public int Port { get; private set; }
         public Uri URI { get; private set; }
 
-        public DMLocation(string uri) : this()
+        public DMLocation(string location) : this()
         {
-            URI = new Uri(uri);
+            //TODO: move protocol type to somewhere else
+            URI = new Uri(@"db://"+location);
         }
 
         public bool IsBefore(DMLocation endLocation)

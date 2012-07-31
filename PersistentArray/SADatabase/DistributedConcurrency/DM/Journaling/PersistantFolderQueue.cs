@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace DistributedConcurrency.DM.Journaling
 {
@@ -18,6 +19,11 @@ namespace DistributedConcurrency.DM.Journaling
             Directory.CreateDirectory(journalDirectory);
 		    _queue = new Queue<FileStream>(); //init queue
 		    Recover(); //call recover()
+        }
+
+        ~PersistantFolderQueue()
+        {
+            RemoveAll();
         }
 
         private FileStream GetHead()
@@ -40,9 +46,10 @@ namespace DistributedConcurrency.DM.Journaling
         private List<string> GetAllJournalFiles()
         {
             String[] allFiles = Directory.GetFiles(_directory); //let allFiles be all the files inside of directory
+            var fileNames = allFiles.Select(fullPath => Path.GetFileName(fullPath));
             //let journalFiles be allFiles filtered based on JOURNAL_FORMAT
             //TODO: I am converting each string twice
-            var journalFiles = allFiles.Where(s => { DateTime dt; return DateTime.TryParse(s, out dt); });
+            var journalFiles = fileNames.Where(s => { DateTime dt; return DateTime.TryParse(s, out dt); });
 
             journalFiles.OrderBy(s => DateTime.Parse(s)); //sort journalFiles a-z
 		    //return journalFiles
@@ -61,7 +68,7 @@ namespace DistributedConcurrency.DM.Journaling
 
         public void Push(T change)
         {
-            string currentTimestamp = DateTime.Now.ToString(JOURNAL_FORMAT); //let currentTimestamp be DateTime's now, toString'd passing in JOURNAL_FORMAT
+            string currentTimestamp = System.DateTime.Now.ToString(JOURNAL_FORMAT); //let currentTimestamp be DateTime's now, toString'd passing in JOURNAL_FORMAT
             FileStream file = CreateJournalFile(currentTimestamp); //let file be the result of createJournalFile() passing in currentTimestamp
             WriteChangeToStream(file, change); //call writeChangeToStream() passing in file & change
             _queue.Enqueue(file); //add file to queue
@@ -70,7 +77,23 @@ namespace DistributedConcurrency.DM.Journaling
         private FileStream CreateJournalFile(String fileName)
         {
             //return a new FileStream with no sharing & r/w permissions passing in fileName
-            return new FileStream(_directory + fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+            FileStream file = null;
+            while (file == null)
+            {
+                try
+                {
+                    file = new FileStream(_directory + fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+                }
+                catch (IOException ex)
+                {
+                    //hack
+                    if (ex.Message.Contains("it is being used by another process."))
+                        Thread.Sleep(500);
+                    else
+                        throw;
+                }
+            }
+            return file;
         }
 
         public T Peek() //could cache the file for use in pop() since 99% of the time peek() will be called before pop()
