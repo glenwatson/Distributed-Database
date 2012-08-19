@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Net.Sockets;
-using DistributedConcurrency.DM;
 using DistributedConcurrency.Shared;
-using DistributedConcurrency.Shared.Communication.Messages;
 using DistributedConcurrency.Shared.Communication.Messages.DMResponses;
 using DistributedConcurrency.Shared.Communication.Messages.TMMessages;
 
@@ -10,7 +8,7 @@ namespace DistributedConcurrency.TM
 {
     public class DataManagerClient : IDataManager, IDisposable
     {
-        private readonly Socket _socket;
+        private Socket _socket;
 
         public DataManagerClient(DMLocation dmLocation)
         {
@@ -18,13 +16,18 @@ namespace DistributedConcurrency.TM
             _socket.Connect(dmLocation.URI.Host, dmLocation.URI.Port);
         }
 
+        public void Dispose()
+        {
+            Disconnect();
+        }
+
         /// <summary>
         /// Gracefully disconnect
         /// </summary>
-        public void Dispose()
+        private void Disconnect()
         {
             _socket.Shutdown(SocketShutdown.Both);
-            _socket.Disconnect(false);
+            _socket.Close();
         }
 
         public byte Read(ObjectLocation objLocation)

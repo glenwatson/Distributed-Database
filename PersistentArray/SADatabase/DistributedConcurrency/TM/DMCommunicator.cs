@@ -6,6 +6,10 @@ using DistributedConcurrency.Shared;
 
 namespace DistributedConcurrency.TM
 {
+    /// <summary>
+    /// A store of connections to DMs.
+    /// Tell it an action and DMLocation and it will figure out which socket to use & perform action
+    /// </summary>
     class DMCommunicator : ITransactionManager
     {
         private readonly IDictionary<DMLocation, DataManagerClient> _dmClientLookup = new Dictionary<DMLocation,DataManagerClient>();

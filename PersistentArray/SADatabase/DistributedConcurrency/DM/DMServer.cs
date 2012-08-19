@@ -50,23 +50,15 @@ namespace DistributedConcurrency.DM
                 try
                 {
                     Socket receivingSocket = _listeningSocket.Accept();
-                    Console.WriteLine("Connection Accepted " + Thread.CurrentThread.ManagedThreadId); //Wait for next connection
                     ThreadPool.QueueUserWorkItem(HandleConnection, receivingSocket); //Spawn thread to handle the connection
                 }
-                catch (SocketException) //.Accept() will throw an exception when _listeningSocket is closed in the Stop()
+                catch (SocketException) //.Accept() will throw a SocketException when _listeningSocket is closed in the Stop()
                 {}
             }
         }
 
-        public void Stop()
-        {
-            acceptConnections = false;
-            _listeningSocket.Close();
-        }
-
         private void HandleConnection(object receivingSocketObj)
         {
-            Console.WriteLine("Connection Processing " + Thread.CurrentThread.ManagedThreadId);
             Socket receivingSocket = (Socket)receivingSocketObj;
 
             while (receivingSocket.Connected)
@@ -76,8 +68,15 @@ namespace DistributedConcurrency.DM
                 CommandMessage commandMessage = (CommandMessage) message;
                 commandMessage.HandleCommandMessage(this, receivingSocket);
             }
-            Console.WriteLine("Connection Closed " + Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Conn closed");
         }
+
+        public void Stop()
+        {
+            acceptConnections = false;
+            _listeningSocket.Close();
+        }
+
 
         #region ICommandMessageHandler
         public void HandleBeginMessage(BeginMessage beginMessage)

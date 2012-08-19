@@ -130,10 +130,10 @@ namespace DistributedConcurrency.DM.Journaling
         }
         private FileStream CreateJournalFile()
         {
-            string currentTimestamp = System.DateTime.Now.ToString(JOURNAL_FORMAT); //let currentTimestamp be DateTime's now, toString'd passing in JOURNAL_FORMAT
             FileStream file = null;
             while (file == null)
             {
+                string currentTimestamp = System.DateTime.Now.ToString(JOURNAL_FORMAT); //let currentTimestamp be DateTime's now, toString'd passing in JOURNAL_FORMAT
                 try
                 {
                     file = new FileStream(_directory + currentTimestamp, FileMode.Create, FileAccess.ReadWrite, FileShare.None);

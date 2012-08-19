@@ -38,33 +38,25 @@ namespace DistributedConcurrency.DM
             
         }
 
-        private static int changeCount = 0;
         public void End()
         {
             foreach (Change change in _workspace)
             {
-                Console.WriteLine("+ on thread: " + Thread.CurrentThread.ManagedThreadId);
-                changeCount++;
                 _journal.AddChange(change); //journal the change
             }
             foreach (Change change in _workspace)
             {
                 if(change.IsWrite)
                     Write(change.Location.ObjectLocation, change.Value);
-                Console.WriteLine("- on thread: " + Thread.CurrentThread.ManagedThreadId);
-                changeCount--;
                 _journal.RemoveChange();
                 _lockManager.RelaseLock(change.Location);
             }
-            Console.WriteLine("Releasing _workspace");
             Monitor.Exit(_workspace);
-            Console.WriteLine("Final files at of End(): "+changeCount);
         }
 
         public void Abort()
         {
             RemoveAllChanges();
-            Console.WriteLine("Releasing _workspace");
             Monitor.Exit(_workspace);
         }
 
@@ -88,7 +80,6 @@ namespace DistributedConcurrency.DM
         //TODO: get rid of break
         public Vote EndStagingPhase()
         {
-            Console.WriteLine("Locking _workspace");
             Monitor.Enter(_workspace);
 
             bool successfulStage = true;
