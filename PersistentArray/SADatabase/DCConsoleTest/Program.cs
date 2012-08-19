@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using DistributedConcurrency.DM;
 using DistributedConcurrency.Shared;
 using DistributedConcurrency.TM;
@@ -42,6 +43,9 @@ namespace DCConsoleTest
 
             t2.End();
 
+            dm.Stop();
+
+            Console.WriteLine("Press Enter....");
             Console.ReadLine();
         }
     }

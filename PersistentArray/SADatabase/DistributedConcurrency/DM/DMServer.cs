@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 using DistributedConcurrency.Shared;
 using DistributedConcurrency.Shared.Communication;
 using DistributedConcurrency.Shared.Communication.Messages;
@@ -11,46 +12,62 @@ namespace DistributedConcurrency.DM
 {
     public class DMServer : ICommandMessageHandler
     {
-        private readonly Socket _server;
+        private readonly Socket _listeningSocket;
         private readonly IDataManager _dataManager;
+        private bool acceptConnections;
 
         public EndPoint Location
         {
             get
             {
-                return _server.LocalEndPoint;
+                return _listeningSocket.LocalEndPoint;
             }
         }
 
         public DMServer(int port, IDataManager dataManager)
         {
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            //TODO: get rid of localhost
+            //TODO: get rid of localhost (0x0100007f)
             IPAddress ipAddr = new IPAddress(0x0100007f);
             IPEndPoint localEP = new IPEndPoint(ipAddr/*ipHostInfo.AddressList[0]*/, port);
-            _server = new Socket(localEP.Address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            _server.Bind(localEP);
+            _listeningSocket = new Socket(localEP.Address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            _listeningSocket.Bind(localEP);
 
             _dataManager = dataManager;
         }
 
         public void Start(int backlog)
         {
-            _server.Listen(backlog);
-            _server.BeginAccept(new AsyncCallback(AcceptCallback), _server);
+            _listeningSocket.Listen(backlog); //Start listening for connections and queuing them up
+            acceptConnections = true; //Get ready to start accepting connections
+            ThreadPool.QueueUserWorkItem(Run); //Spawn thread to accept connections
+        }
+
+        private void Run(object state)
+        {
+            while (acceptConnections)
+            {
+                try
+                {
+                    Socket receivingSocket = _listeningSocket.Accept();
+                    Console.WriteLine("Connection Accepted " + Thread.CurrentThread.ManagedThreadId); //Wait for next connection
+                    ThreadPool.QueueUserWorkItem(HandleConnection, receivingSocket); //Spawn thread to handle the connection
+                }
+                catch (SocketException) //.Accept() will throw an exception when _listeningSocket is closed in the Stop()
+                {}
+            }
         }
 
         public void Stop()
         {
-            _server.Shutdown(SocketShutdown.Receive);
-            _server.Close();
+            acceptConnections = false;
+            _listeningSocket.Close();
         }
 
-        private void AcceptCallback(IAsyncResult result)
+        private void HandleConnection(object receivingSocketObj)
         {
-            Socket socket = (Socket)result.AsyncState;
-
-            Socket receivingSocket = socket.EndAccept(result);
+            Console.WriteLine("Connection Processing " + Thread.CurrentThread.ManagedThreadId);
+            Socket receivingSocket = (Socket)receivingSocketObj;
 
             while (receivingSocket.Connected)
             {
@@ -59,7 +76,7 @@ namespace DistributedConcurrency.DM
                 CommandMessage commandMessage = (CommandMessage) message;
                 commandMessage.HandleCommandMessage(this, receivingSocket);
             }
-
+            Console.WriteLine("Connection Closed " + Thread.CurrentThread.ManagedThreadId);
         }
 
         #region ICommandMessageHandler
