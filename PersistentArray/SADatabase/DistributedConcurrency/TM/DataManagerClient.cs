@@ -20,7 +20,10 @@ namespace DistributedConcurrency.TM
         {
             Disconnect();
         }
-
+        public void Dispose(bool managed)
+        {
+            Disconnect();
+        }
         /// <summary>
         /// Gracefully disconnect
         /// </summary>
