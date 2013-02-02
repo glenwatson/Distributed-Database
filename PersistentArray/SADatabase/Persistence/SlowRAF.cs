@@ -5,7 +5,7 @@ namespace Persistence
 {
     public class SlowRAF : RandomAccessFile
     {
-        private const int Latency = 1000;
+        private const int Latency = 1500;
 
         public SlowRAF(FileStream stream) : base(stream)
         {
